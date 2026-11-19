@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050b1b">
+  <title>IntelliFind — Lost & Found</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="IntelliFind home">
+      <span class="brand-mark">⌕</span><span>Intelli<span class="brand-blue">Find</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#report" data-open="lost">Report Lost</a>
+      <a class="nav-link" href="#report" data-open="found">Report Found</a>
+      <a class="nav-link" href="#search">Search</a>
+      <a class="nav-link" href="#my-reports">My Reports</a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-button" id="notificationsBtn" aria-label="Notifications">♧<i></i></button>
+      <a class="button button-small button-lime" href="#report" data-open="lost">Get Started <span>→</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="spark">✦</span> SMARTER LOST &amp; FOUND</div>
+        <h1>Find What<br>You <span class="lime-text">Lost.</span><br>Return What<br>You <span class="blue-text">Found.</span></h1>
+        <p class="hero-description">IntelliFind helps you report, search and match<br class="desktop-break"> lost and found items with an intelligent system.</p>
+        <div class="hero-buttons">
+          <button class="button button-lime" data-open="lost"><span class="search-symbol">⌕</span> Report Lost Item <span>→</span></button>
+          <button class="button button-outline" data-open="found"><span class="gift-symbol">▣</span> Report Found Item</button>
+        </div>
+        <div class="trust-line"><span class="trust-dot"></span> A smarter way to reconnect people with their belongings</div>
+      </div>
+
+      <div class="hero-art" aria-label="Illustration of location pin and found items">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+        <div class="platform"><div class="platform-core"></div></div>
+        <div class="pin"> <div class="pin-hole"></div> </div>
+        <div class="float-card wallet">▱</div>
+        <div class="float-card phone">▯</div>
+        <div class="float-card key">⚿</div>
+        <div class="float-card bag">♧</div>
+        <div class="sparkle s1">✦</div><div class="sparkle s2">·</div><div class="sparkle s3">✧</div>
+        <div class="match-card">
+          <div class="match-heading"><span>✦</span><b>Intelligent<br>Matching</b></div>
+          <p>Find possible matches<br>with smart filtering.</p>
+          <div class="progress-ring"><strong>92%</strong></div>
+          <small>Match Found</small>
+        </div>
+      </div>
+        
+    </section>
+
+    <section class="stats section-wrap" aria-label="Platform statistics">
+      <div class="stat"><span class="stat-icon blue-icon">▣</span><div><strong id="lostCount">124</strong><small>Lost Items</small></div></div>
+      <div class="stat"><span class="stat-icon lime-icon">⬡</span><div><strong id="foundCount">98</strong><small>Found Items</small></div></div>
+      <div class="stat"><span class="stat-icon blue-icon">✓</span><div><strong id="matchCount">67</strong><small>Successful Matches</small></div></div>
+      <div class="stat"><span class="stat-icon lime-icon">♡</span><div><strong id="returnedCount">45</strong><small>Items Returned</small></div></div>
+    </section>
+
+    <section class="how-section section-wrap">
+      <div class="section-kicker">HOW IT WORKS</div>
+      <h2>Lost something? We make finding it <span class="blue-text">easier.</span></h2>
+      <div class="steps">
+        <article class="step-card">
+          <span class="step-number blue-bg">01</span><span class="step-icon blue-icon">▤</span>
+          <div><h3>Report</h3><p>Report your lost or found<br>item with important details.</p></div>
+        </article>
+        <span class="step-arrow">→</span>
+        <article class="step-card step-highlight">
+          <span class="step-number lime-bg">02</span><span class="step-icon lime-text">♧</span>
+          <div><h3>Match</h3><p>Our system compares item<br>details and finds possible matches.</p></div>
+        </article>
+        <span class="step-arrow">→</span>
+        <article class="step-card">
+          <span class="step-number blue-bg">03</span><span class="step-icon blue-icon">♧</span>
+          <div><h3>Recover</h3><p>Connect the matching items<br>and complete the return process.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section section-wrap" id="search">
+      <div class="section-heading">
+        <div><div class="section-kicker">EXPLORE ITEMS</div><h2>Search <span class="lime-text">the listings.</span></h2></div>
+        <span class="section-note">Browse demo listings and your saved reports</span>
+      </div>
+      <div class="search-panel">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search by item name, category or location..."></label>
+        <select id="typeFilter" aria-label="Filter by type"><option value="all">All items</option><option value="lost">Lost items</option><option value="found">Found items</option></select>
+        <button class="button button-lime" id="searchBtn">Search</button>
+      </div>
+      <div class="item-grid" id="itemGrid"></div>
+      <p class="empty-state hidden" id="emptyState">No items found. Try another search.</p>
+    </section>
+
+    <section class="content-section section-wrap" id="my-reports">
+      <div class="section-heading">
+        <div><div class="section-kicker">YOUR ACTIVITY</div><h2>My <span class="blue-text">Reports.</span></h2></div>
+        <button class="button button-outline" data-open="lost">+ Create report</button>
+      </div>
+      <div class="reports-list" id="reportsList"><div class="empty-report">Your reports will appear here after you submit one.</div></div>
+    </section>
+  </main>
+
+  <footer class="footer section-wrap">
+    <span>© 2026 IntelliFind. Lost less. Found faster.</span>
+    <div><a href="#home">About</a><a href="#home">Help</a><a href="#home">Contact</a><span class="social">in</span><span class="social">▶</span></div>
+  </footer>
+
+  <div class="modal-backdrop hidden" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+      <div class="section-kicker">ITEM REPORT</div>
+      <h2 id="modalTitle">Report an item</h2>
+      <p class="modal-intro">Add a few details to create your listing.</p>
+      <form id="reportForm">
+        <div class="form-switch"><button type="button" class="switch-option selected" data-kind="lost">I lost an item</button><button type="button" class="switch-option" data-kind="found">I found an item</button></div>
+        <label>Item name<input name="name" required maxlength="60" placeholder="e.g. Blue water bottle"></label>
+        <div class="form-row">
+          <label>Category<select name="category" required><option value="">Choose category</option><option>Electronics</option><option>Accessories</option><option>Books</option><option>Clothing</option><option>Keys &amp; Cards</option><option>Other</option></select></label>
+          <label>Date<input name="date" type="date" required></label>
+        </div>
+        <label>Location<input name="location" required maxlength="80" placeholder="Where was it lost or found?"></label>
+        <label>Description<textarea name="description" rows="3" maxlength="300" placeholder="Colour, brand or other identifying details..."></textarea></label>
+        <label>Contact name<input name="contact" required maxlength="50" placeholder="Your name"></label>
+        <button class="button button-lime submit-button" type="submit">Submit report <span>→</span></button>
+        <p class="form-message" id="formMessage" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+  <div class="toast hidden" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
